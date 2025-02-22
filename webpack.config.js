@@ -1,7 +1,6 @@
 
 const path = require('node:path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 
 module.exports = {
   output: {
@@ -43,6 +42,5 @@ module.exports = {
       template: './src/index.html',
       filename: './index.html',
     }),
-    new NodePolyfillPlugin(),
   ],
 };
