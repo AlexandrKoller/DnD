@@ -2,7 +2,6 @@
 const path = require('node:path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
-const Uglify = require("uglifyjs-webpack-plugin");
 
 module.exports = {
   output: {
@@ -45,6 +44,5 @@ module.exports = {
       filename: './index.html',
     }),
     new NodePolyfillPlugin(),
-    new Uglify(),
   ],
 };
