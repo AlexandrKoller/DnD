@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cardsData = JSON.parse(json)
     }
     catch {
-        console.log(error);
+        console.log(Error);
     }
     console.log(cardsData)
     if(cardsData) {
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.textContent = el
                 e.append(card)
                 const cardMover = new CardMover(card)
-                card.addEventListener('mouseenter', (e) => {
+                card.addEventListener('mouseenter', () => {
                 const del = document.createElement('div')
                 del.classList.add('del')
                 card.append(del)
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     e.stopPropagation()
                     card.remove()})
                     })
-                card.addEventListener('mouseleave', (e) => {
+                card.addEventListener('mouseleave', () => {
                     card.querySelector('.del').remove()
                     })
                 card.addEventListener('mousedown', cardMover.moveCard)

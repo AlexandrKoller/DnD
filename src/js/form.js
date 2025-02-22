@@ -56,7 +56,7 @@ export default class Form {
         this.form = undefined
         cardContainer.append(card)
         const cardMover = new CardMover(card)
-        card.addEventListener('mouseenter', (e) => {
+        card.addEventListener('mouseenter', () => {
             const del = document.createElement('div')
             del.classList.add('del')
             card.append(del)
@@ -64,7 +64,7 @@ export default class Form {
                 e.stopPropagation()
                 card.remove()})
         })
-        card.addEventListener('mouseleave', (e) => {
+        card.addEventListener('mouseleave', () => {
             card.querySelector('.del').remove()
         })
         card.addEventListener('mousedown', cardMover.moveCard)
