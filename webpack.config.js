@@ -1,13 +1,12 @@
 
 const path = require('node:path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
+const Uglify = require("uglifyjs-webpack-plugin");
 
 module.exports = {
-  devServer: {
-    port: 9000,
-  },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'docs'),
   },
   module: {
     rules: [
@@ -37,17 +36,15 @@ module.exports = {
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
-      },
-      {
-        test: /\.txt/,
-        type: 'asset/source',
-      }
-    ],
+      }, 
+      ],
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: './src/task.html',
+      template: './src/index.html',
       filename: './index.html',
-    })
+    }),
+    new NodePolyfillPlugin(),
+    new Uglify(),
   ],
 };
